@@ -55,7 +55,7 @@ export const HomeOfferSection: React.FC = () => {
             <div className="flex-1 flex flex-col h-full min-w-0">
               <div className="flex flex-col">
                 <div className="flex items-center justify-between gap-1 ">
-                  <Text variant="sub" weight="bold" className="text-ejsc-brand leading-none truncate">
+                  <Text variant="base" weight="bold" className="text-ejsc-brand leading-none truncate">
                     {voucher.amount}
                   </Text>
                   <div className={cn(

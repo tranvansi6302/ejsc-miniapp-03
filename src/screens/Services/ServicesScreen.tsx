@@ -102,7 +102,7 @@ const ServicesScreen: React.FC = () => {
 
       <div className="pb-24 flex flex-col">
         {/* Featured Services - New Banner Carousel Style */}
-        <div className="flex flex-col gap-4 mt-4">
+        <div className="flex flex-col gap-4 mt-6">
           <div className="px-5 flex items-center justify-between">
             <Text variant="base" weight="bold" className="text-slate-800">Dịch vụ nổi bật</Text>
             <div className="flex gap-1">
@@ -116,7 +116,7 @@ const ServicesScreen: React.FC = () => {
             {FEATURED_SERVICES.map((item) => (
               <div
                 key={item.id}
-                className="flex-none w-[calc(100vw-40px)] h-[100px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 px-4 flex flex-col justify-center relative overflow-hidden snap-center"
+                className="flex-none w-[calc(100vw-40px)] h-[115px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 p-4 flex flex-col relative overflow-hidden snap-center"
               >
                 {/* Background Illustration */}
                 <div className="absolute right-[-20px] bottom-[-10px] opacity-5 transform rotate-[-15deg] z-0">
@@ -124,7 +124,7 @@ const ServicesScreen: React.FC = () => {
                 </div>
 
                 {/* Content Rows */}
-                <div className="flex flex-col gap-1 z-10 w-full">
+                <div className="flex-1 flex flex-col justify-between z-10 w-full">
                   {/* Top Row: Tag & Button */}
                   <div className="flex items-center justify-between w-full">
                     <div className="bg-orange-50 px-1.5 py-0.5 rounded border border-orange-100 w-fit">
@@ -138,7 +138,7 @@ const ServicesScreen: React.FC = () => {
                   {/* Bottom Row: Info & Icon */}
                   <div className="flex items-center justify-between w-full">
                     <div className="flex flex-col">
-                      <Text variant="base" weight="bold" className="text-slate-900 leading-tight">
+                      <Text variant="base" weight="semibold" className="text-slate-700 leading-tight">
                         {item.name}
                       </Text>
                       <div className="flex items-center gap-2 mt-0.5 flex-wrap">

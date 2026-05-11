@@ -40,7 +40,7 @@ export const HomeServiceGrid: React.FC = () => {
               <div className="w-13.5 h-13.5 flex items-center justify-center mb-0.5 bg-slate-50 rounded-full p-2.5 shadow-sm group-active:scale-95 transition-transform">
                 <img src={item.image} alt={item.title} className="w-full h-full object-contain opacity-95" />
               </div>
-              <Text variant="base" className="line-clamp-2 min-h-[2.4em] flex items-center justify-center leading-tight">
+              <Text variant="sub" className="line-clamp-2 min-h-[2.4em] flex items-center justify-center leading-tight">
                 {item.title}
               </Text>
             </div>
