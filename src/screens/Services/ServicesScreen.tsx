@@ -7,13 +7,11 @@ import {
   Lightbulb,
   MapPin,
   Search,
-  ShoppingBag,
   SlidersHorizontal,
   Sparkles,
   Star,
   Wind,
-  Zap,
-  X
+  Zap
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
@@ -21,17 +19,17 @@ const SERVICE_DATA = [
   {
     category: 'Sửa chữa điện nước',
     items: [
-      { id: '1', name: 'Sửa vòi nước, đường ống', price: '150k - 450k', rating: 4.8, bookings: '1.2k', icon: <Droplets size={20} className="text-blue-500" />, iconBg: 'bg-blue-50' },
-      { id: '2', name: 'Sửa chập điện, nhảy aptomat', price: '200k - 600k', rating: 4.9, bookings: '850', icon: <Zap size={20} className="text-orange-500" />, iconBg: 'bg-orange-50' },
-      { id: '3', name: 'Lắp đặt, thay mới bóng đèn', price: '100k - 300k', rating: 4.7, bookings: '2.1k', icon: <Lightbulb size={20} className="text-amber-500" />, iconBg: 'bg-amber-50' },
+      { id: '1', name: 'Sửa vòi nước, đường ống', desc: 'Xử lý rò rỉ, thay mới linh kiện chính hãng', price: '150k - 450k', rating: 4.8, bookings: '1.2k', icon: <Droplets size={20} className="text-blue-500" />, iconBg: 'bg-blue-50' },
+      { id: '2', name: 'Sửa chập điện, nhảy aptomat', desc: 'Khắc phục sự cố điện nhanh chóng, an toàn', price: '200k - 600k', rating: 4.9, bookings: '850', icon: <Zap size={20} className="text-orange-500" />, iconBg: 'bg-orange-50' },
+      { id: '3', name: 'Lắp đặt, thay mới bóng đèn', desc: 'Thi công hệ thống chiếu sáng dân dụng', price: '100k - 300k', rating: 4.7, bookings: '2.1k', icon: <Lightbulb size={20} className="text-amber-500" />, iconBg: 'bg-amber-50' },
     ]
   },
   {
     category: 'Vệ sinh nhà cửa',
     items: [
-      { id: '4', name: 'Dọn dẹp nhà cửa (theo giờ)', price: '80k/giờ', rating: 4.9, bookings: '5k+', icon: <Sparkles size={20} className="text-emerald-500" />, iconBg: 'bg-emerald-50' },
-      { id: '5', name: 'Giặt Sofa, nệm, rèm cửa', price: '300k - 800k', rating: 4.8, bookings: '1.1k', icon: <Wind size={20} className="text-cyan-500" />, iconBg: 'bg-cyan-50' },
-      { id: '6', name: 'Tổng vệ sinh sau xây dựng', price: '1tr - 5tr', rating: 4.6, bookings: '420', icon: <Droplets size={20} className="text-rose-500" />, iconBg: 'bg-rose-50' },
+      { id: '4', name: 'Dọn dẹp nhà cửa (theo giờ)', desc: 'Vệ sinh sạch sẽ, tỉ mỉ từng ngóc ngách', price: '80k/giờ', rating: 4.9, bookings: '5k+', icon: <Sparkles size={20} className="text-emerald-500" />, iconBg: 'bg-emerald-50' },
+      { id: '5', name: 'Giặt Sofa, nệm, rèm cửa', desc: 'Công nghệ hơi nước nóng diệt khuẩn 99%', price: '300k - 800k', rating: 4.8, bookings: '1.1k', icon: <Wind size={20} className="text-cyan-500" />, iconBg: 'bg-cyan-50' },
+      { id: '6', name: 'Tổng vệ sinh sau xây dựng', desc: 'Vệ sinh công nghiệp trọn gói, chuyên nghiệp', price: '1tr - 5tr', rating: 4.6, bookings: '420', icon: <Droplets size={20} className="text-rose-500" />, iconBg: 'bg-rose-50' },
     ]
   }
 ];
@@ -93,7 +91,7 @@ const ServicesScreen: React.FC = () => {
               className="flex-1 bg-transparent border-none outline-none text-slate-800 font-medium placeholder:text-slate-400 text-ejsc-sub"
             />
           </div>
-          <button 
+          <button
             onClick={() => setIsFilterOpen(true)}
             className="w-14 h-14 bg-slate-50 rounded-ejsc flex items-center justify-center border border-slate-100 active:bg-slate-100 transition-colors shrink-0"
           >
@@ -103,54 +101,44 @@ const ServicesScreen: React.FC = () => {
       </div>
 
       <div className="pb-24 flex flex-col">
-        {/* Featured Services Section - New Premium Vertical Style */}
+        {/* Featured Services - New Banner Carousel Style */}
         <div className="flex flex-col gap-4 mt-4">
-          <div className="px-5">
+          <div className="px-5 flex items-center justify-between">
             <Text variant="sub" weight="bold" className="text-slate-800">Dịch vụ nổi bật</Text>
+            <div className="flex gap-1">
+              {[0, 1, 2].map((i) => (
+                <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-slate-800 w-3' : 'bg-slate-200'}`} />
+              ))}
+            </div>
           </div>
-          <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 pb-6">
+
+          <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 snap-x snap-mandatory pb-2">
             {FEATURED_SERVICES.map((item) => (
               <div
                 key={item.id}
-                className="flex-none w-[160px] bg-white rounded-ejsc border border-slate-100 flex flex-col p-3 gap-3 active:scale-[0.98] transition-all relative"
+                className="flex-none w-[calc(100vw-40px)] h-[150px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 p-6 flex relative overflow-hidden snap-center"
               >
-                {/* Top: Icon Container */}
-                <div className={`w-full h-20 ${item.iconBg} rounded-ejsc flex items-center justify-center relative`}>
-                  {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 32 })}
-                  {/* Tag Style - Matched with Home Offers */}
-                  <div className="absolute top-2 right-2 bg-orange-100 px-1.5  rounded-[4px]">
-                    <Text variant="caption" weight="medium" className="text-orange-600 text-[8px] uppercase tracking-tight">{item.tag}</Text>
+                {/* Content Left */}
+                <div className="flex-1 flex flex-col gap-5  z-10">
+                  <div className="flex flex-col gap-1">
+                    <Text variant="sub" weight="bold" className="text-orange-600 uppercase tracking-widest text-[10px]">{item.tag}</Text>
+                    <Text variant="h3" weight="bold" className="text-slate-900 leading-tight">
+                      {item.name}
+                    </Text>
+                    <Text variant="sub" className="text-slate-500">Giá chỉ từ <span className="font-bold text-slate-800">{item.price.split(' ')[0]}</span></Text>
                   </div>
+
+                  <button className="bg-ejsc-brand-sub px-6 py-2.5 rounded-full w-fit active:scale-95 transition-all">
+                    <Text variant="sub" weight="bold" className="text-white">Đặt ngay</Text>
+                  </button>
                 </div>
 
-                {/* Middle: Details */}
-                <div className="flex flex-col gap-1">
-                  <Text variant="sub" weight="bold" className="text-slate-800 truncate leading-tight">
-                    {item.name}
-                  </Text>
-                  <div className="flex items-center justify-between">
-                    <Text variant="sub" weight="bold" className="text-ejsc-brand-sub text-[10px]">{item.price}</Text>
-                    <div className="flex items-center gap-0.5">
-                      <Star size={9} className="text-amber-400 fill-amber-400" />
-                      <Text variant="sub" className="text-slate-400 text-[9px]">{item.rating}</Text>
-                    </div>
-                  </div>
+                {/* Illustration Right */}
+                <div className="absolute right-[-20px] bottom-[-10px] opacity-20 transform rotate-[-15deg]">
+                  {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 140 })}
                 </div>
-
-                {/* Bottom Actions - Now standardized to h-10 */}
-                <div className="flex items-center gap-2 pt-1 border-t border-slate-50">
-                  <button
-                    onClick={handleToggleFavorite}
-                    className="w-10 h-10 rounded-ejsc bg-slate-50 border border-slate-100 flex items-center justify-center active:bg-slate-100 shrink-0"
-                  >
-                    <Heart size={14} className="text-slate-600" />
-                  </button>
-                  <button
-                    onClick={handleToggleFavorite}
-                    className="flex-1 h-10 bg-white border border-slate-200 rounded-ejsc flex items-center justify-center active:bg-slate-50"
-                  >
-                    <Text variant="sub" weight="medium" className="text-slate-800 text-[10px]">Đặt ngay</Text>
-                  </button>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 drop-shadow-xl transform hover:scale-110 transition-transform">
+                  {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 80 })}
                 </div>
               </div>
             ))}
@@ -158,11 +146,11 @@ const ServicesScreen: React.FC = () => {
         </div>
 
         {/* Categorized Service Sections */}
-        <div className="flex flex-col gap-8 px-4">
+        <div className="flex flex-col gap-8 px-4 mt-4">
           {SERVICE_DATA.map((section) => (
             <div key={section.category} className="flex flex-col gap-4">
               <div className="flex items-center justify-between px-1">
-                <Text variant="sub" weight="bold" className="text-slate-800">{section.category}</Text>
+                <Text variant="base" weight="bold" className="text-ejsc-text-main">{section.category}</Text>
                 <div className="flex items-center gap-1 cursor-pointer">
                   <Text variant="sub" weight="bold" className="text-orange-600">Tất cả</Text>
                   <ChevronRight size={12} className="text-orange-600" />
@@ -181,22 +169,27 @@ const ServicesScreen: React.FC = () => {
                         {item.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <Text variant="sub" weight="bold" className="text-slate-800 block truncate">{item.name}</Text>
-                        <div className="flex items-center gap-2 mt-1.5">
-                          <Text variant="sub" weight="bold" className="text-ejsc-brand-sub">{item.price}</Text>
-                          <div className="w-1 h-1 bg-slate-200 rounded-full shrink-0" />
-                          <div className="flex items-center gap-1 shrink-0">
-                            <Star size={12} className="text-amber-400 fill-amber-400" />
-                            <Text variant="sub" className="text-slate-500 font-medium">{item.rating}</Text>
-                          </div>
-                          <div className="w-1 h-1 bg-slate-200 rounded-full shrink-0" />
-                          <Text variant="sub" className="text-slate-400 shrink-0">{item.bookings} lượt đặt</Text>
-                        </div>
+                        <Text variant="sub" weight="semibold" className="text-slate-800 block truncate">{item.name}</Text>
+                        <Text variant="sub" className="text-slate-400 mt-0.5 line-clamp-1 italic">{item.desc}</Text>
                       </div>
                     </div>
 
-                    {/* Bottom Row: Actions Only */}
-                    <div className="flex items-center justify-end pt-2 border-t border-slate-50">
+                    {/* Bottom Row: Info & Actions */}
+                    <div className="flex items-center justify-between pt-3 border-t border-slate-50">
+                      {/* Left: Info Group */}
+                      <div className="flex flex-col gap-1">
+                        <Text variant="sub" weight="bold" className="text-ejsc-brand-sub">{item.price}</Text>
+                        <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1">
+                            <Star size={12} className="text-amber-400 fill-amber-400" />
+                            <Text variant="sub" className="text-slate-500 font-medium text-[11px]">{item.rating}</Text>
+                          </div>
+                          <div className="w-1 h-1 bg-slate-200 rounded-full shrink-0" />
+                          <Text variant="sub" className="text-slate-400 text-[11px]">{item.bookings} lượt đặt</Text>
+                        </div>
+                      </div>
+
+                      {/* Right: Action Group */}
                       <div className="flex items-center gap-3">
                         <button
                           onClick={handleToggleFavorite}
@@ -206,7 +199,7 @@ const ServicesScreen: React.FC = () => {
                         </button>
                         <button
                           onClick={handleToggleFavorite}
-                          className="px-6 h-10 bg-white border border-slate-200 rounded-ejsc flex items-center justify-center gap-2 active:bg-slate-50 transition-all"
+                          className="px-4 h-10 bg-white border border-slate-200 rounded-ejsc flex items-center justify-center gap-2 active:bg-slate-50 transition-all"
                         >
                           <Text variant="sub" weight="medium" className="text-slate-800">Đặt ngay</Text>
                           <ChevronRight size={14} className="text-slate-800" />
@@ -228,37 +221,36 @@ const ServicesScreen: React.FC = () => {
         title="Bộ lọc dịch vụ"
       >
         <div className="p-5 flex flex-col gap-8 pb-10">
-          {/* Sorting */}
           <div className="flex flex-col gap-4">
             <Text variant="sub" weight="bold" className="text-slate-900">Sắp xếp theo</Text>
             <div className="flex flex-wrap gap-2">
               {['Mặc định', 'Giá thấp - cao', 'Giá cao - thấp', 'Đánh giá tốt'].map((opt) => (
                 <button
                   key={opt}
-                  className={`px-4 py-2 rounded-ejsc border text-sm font-medium transition-all ${opt === 'Mặc định' ? 'bg-orange-50 border-orange-200 text-orange-600' : 'bg-white border-slate-100 text-slate-600'}`}
+                  className={`px-5 py-2.5 rounded-ejsc border transition-all ${opt === 'Mặc định' ? 'bg-orange-50 border-orange-200 text-orange-600' : 'bg-white border-slate-100 text-slate-600'}`}
                 >
-                  {opt}
+                  <Text variant="sub" weight="medium" className={opt === 'Mặc định' ? 'text-orange-600' : 'text-slate-600'}>
+                    {opt}
+                  </Text>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Price Range */}
           <div className="flex flex-col gap-4">
             <Text variant="sub" weight="bold" className="text-slate-900">Khoảng giá</Text>
             <div className="flex flex-wrap gap-2">
               {['Dưới 200k', '200k - 500k', 'Trên 500k'].map((opt) => (
                 <button
                   key={opt}
-                  className="px-4 py-2 rounded-ejsc border bg-white border-slate-100 text-slate-600 text-sm font-medium transition-all active:bg-slate-50"
+                  className="px-5 py-2.5 rounded-ejsc border bg-white border-slate-100 text-slate-600 transition-all active:bg-slate-50"
                 >
-                  {opt}
+                  <Text variant="sub" weight="medium" className="text-slate-600">{opt}</Text>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Action Button */}
           <button
             onClick={() => setIsFilterOpen(false)}
             className="w-full h-14 bg-orange-600 rounded-ejsc flex items-center justify-center active:opacity-90 transition-all mt-4"
