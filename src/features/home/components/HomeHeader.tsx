@@ -1,8 +1,9 @@
 import React from 'react';
-import { Search, ChevronDown, LayoutGrid, Info } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
 import { Text } from 'ejsc-ma-component';
 import appLogo from '../../../assets/icons/Icon.png';
-import appGift from '../../../assets/icons/gift.png';
+import appDiscount from '../../../assets/icons/discount.png';
+import appMyBiz from '../../../assets/icons/myBiz.png';
 import bgHeader from '../../../assets/images/bg-header.jpg';
 import { apisAsync } from 'ejsc-ma-api';
 
@@ -24,14 +25,14 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({ onNavigate }) => {
 
       {/* Floating Topbar */}
       <div
-        className="relative z-20 px-3 flex items-center justify-between gap-1.5"
+        className="relative z-20 mt-0.5 px-3 flex items-center justify-between gap-1.5"
         style={{ paddingTop: 'calc(var(--safe-top, env(safe-area-inset-top, 0px)) + 6px)' }}
       >
-        <div className="w-11 h-11 shrink-0 flex items-center justify-center select-none active:scale-95 transition-transform">
+        <div className="w-15 h-15 shrink-0 flex items-center justify-center select-none active:scale-95 transition-transform">
           <img src={appLogo} alt="logo" className="w-full h-full object-contain" />
         </div>
 
-        <div className="flex-1 flex items-center justify-between gap-1 bg-transparent rounded-ejsc-main px-4 h-11 border border-white/20 backdrop-blur-md min-w-0">
+        <div className="flex-1 flex items-center justify-between gap-1 bg-transparent rounded-full px-4 h-15 border border-white/20 backdrop-blur-md min-w-0 ">
           <div className="flex items-center gap-2 min-w-0 flex-1">
             <Search size={14} className="text-white/80 shrink-0" />
             <input
@@ -46,8 +47,12 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="w-11 h-11 shrink-0 flex items-center justify-center select-none active:scale-95 transition-transform bg-transparent rounded-ejsc-main border border-white/20 shadow-sm backdrop-blur-md">
-          <img src={appGift} alt="gift" className="w-[95%] h-[95%] object-contain" />
+        {/* Reserved space for native controls (Three dots & Close button) */}
+        <div className="w-[100px] shrink-0" />
+
+        {/* 
+        <div className="w-11 h-11 shrink-0 flex items-center justify-center select-none active:scale-95 transition-transform bg-transparent rounded-ejsc-main border border-white/20 shadow-sm backdrop-blur-md overflow-hidden">
+          <img src={appDiscount} alt="discount" className="w-full h-full object-cover" />
         </div>
 
         <div
@@ -59,16 +64,10 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({ onNavigate }) => {
           }}
           className="flex items-center gap-2 shrink-0 px-3.5 h-11 rounded-ejsc-main bg-transparent select-none active:scale-95 transition-transform shadow-sm border border-white/20 backdrop-blur-md"
         >
-          <LayoutGrid size={18} className="text-white" />
+          <img src={appMyBiz} alt="mybiz" className="w-5 h-5 object-contain" />
           <Text weight='medium' variant="caption" className="text-white tracking-wider">Mybiz</Text>
         </div>
-
-        <div
-          onClick={() => onNavigate('/about')}
-          className="w-11 h-11 shrink-0 flex items-center justify-center select-none active:scale-95 transition-transform bg-white/20 rounded-ejsc-main border border-white/30 shadow-sm backdrop-blur-md"
-        >
-          <Info size={20} className="text-white" />
-        </div>
+        */}
       </div>
     </>
   );

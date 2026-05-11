@@ -8,28 +8,48 @@ import { SimulatorAppHeader } from 'ejsc-ma-component';
 import MainLayout from '../layouts/MainLayout';
 
 // Import Screens (Chỉ dùng các trang đã tạo)
-import DeepLinkHomeScreen from '../screens/Home/DeepLinkHomeScreen';
-import ApiScreen from '../screens/Activities/ApiScreen';
+import HomeScreen from '../screens/Home/HomeScreen';
+import ServicesScreen from '../screens/Services/ServicesScreen';
+import BookingScreen from '../screens/Booking/BookingScreen';
+import ActivitiesScreen from '../screens/Activities/ActivitiesScreen';
 import AccountScreen from '../screens/Account/AccountScreen';
 import AboutScreen from '../screens/About/AboutScreen';
+import ApiScreen from '../screens/Activities/ApiScreen';
 
 export type AnimationType = 'none' | 'slide_left' | 'slide_up' | 'fade_in';
 
 const pages = [
   {
     pathname: '/',
-    Component: DeepLinkHomeScreen,
+    Component: HomeScreen,
     animation: 'none',
     showAppBar: false,
-    customHeader: () => null
+    customHeader: () => null,
+    title: 'Trang chủ'
   },
   {
-    pathname: '/api',
-    Component: ApiScreen,
+    pathname: '/services',
+    Component: ServicesScreen,
     animation: 'slide_left',
     showAppBar: false,
     customHeader: () => null,
-    title: 'Bridge APIs'
+    title: 'Dịch vụ'
+  },
+  {
+    pathname: '/booking',
+    Component: BookingScreen,
+    animation: 'slide_up',
+    showAppBar: false,
+    customHeader: () => null,
+    title: 'Đặt lịch'
+  },
+  {
+    pathname: '/activities',
+    Component: ActivitiesScreen,
+    animation: 'slide_left',
+    showAppBar: false,
+    customHeader: () => null,
+    title: 'Hoạt động'
   },
   {
     pathname: '/account',
@@ -38,6 +58,14 @@ const pages = [
     showAppBar: false,
     customHeader: () => null,
     title: 'Tài khoản'
+  },
+  {
+    pathname: '/api',
+    Component: ApiScreen,
+    animation: 'slide_left',
+    showAppBar: false,
+    customHeader: () => null,
+    title: 'Bridge APIs'
   },
   {
     pathname: '/about',
@@ -68,8 +96,9 @@ export const appRouterConfig: IRouterConfig = {
 export const bottomTabBarConfig = {
   items: [
     { id: 'home', name: 'Trang chủ', path: '/', icon: 'home' },
-    { id: 'api', name: 'API', path: '/api', icon: 'code' },
-    { id: 'about', name: 'Giới thiệu', path: '/about', icon: 'circle-info' },
+    { id: 'services', name: 'Dịch vụ', path: '/services', icon: 'grid' },
+    { id: 'booking', name: 'Đặt lịch', path: '/booking', icon: 'calendar' },
+    { id: 'activities', name: 'Hoạt động', path: '/activities', icon: 'history' },
     { id: 'account', name: 'Tài khoản', path: '/account', icon: 'user' },
   ]
 };

@@ -30,7 +30,7 @@
 
 :root {
   /* 1. Core Colors - Orange for App 3 */
-  --ejsc-sys-primary: #E8711A; 
+  --ejsc-sys-primary: #E8711A;
 
   --ejsc-sys-success: #10B981;
   --ejsc-sys-warning: #F59E0B;
@@ -61,7 +61,7 @@
 
 @theme {
   --ejsc-brand-hex: var(--ejsc-sys-primary);
-  --ejsc-brand-sub-hex: #7C2D12; 
+  --ejsc-brand-sub-hex: #345C5A;
   --ejsc-radius-unit: var(--ejsc-sys-radius);
 
   --color-ejsc-brand: var(--ejsc-sys-primary);
@@ -162,12 +162,15 @@
   }
 
   /* Force remove all shadows for a clean flat look */
-  header, [class*="app-bar"], .ejsc-app-bar {
+  header,
+  [class*="app-bar"],
+  .ejsc-app-bar {
     box-shadow: none !important;
     border-bottom: none !important;
   }
 
-  .ejsc-card, [class*="card"] {
+  .ejsc-card,
+  [class*="card"] {
     box-shadow: none !important;
   }
 }
