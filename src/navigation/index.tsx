@@ -24,6 +24,7 @@ const pages = [
     Component: HomeScreen,
     animation: 'none',
     showAppBar: false,
+    showBottomNav: true,
     customHeader: () => null,
     title: 'Trang chủ'
   },
@@ -32,6 +33,7 @@ const pages = [
     Component: ServicesScreen,
     animation: 'slide_left',
     showAppBar: false,
+    showBottomNav: true,
     customHeader: () => null,
     title: 'Dịch vụ'
   },
@@ -40,6 +42,7 @@ const pages = [
     Component: BookingScreen,
     animation: 'slide_up',
     showAppBar: false,
+    showBottomNav: true,
     customHeader: () => null,
     title: 'Đặt lịch'
   },
@@ -48,6 +51,7 @@ const pages = [
     Component: ActivitiesScreen,
     animation: 'slide_left',
     showAppBar: false,
+    showBottomNav: true,
     customHeader: () => null,
     title: 'Hoạt động'
   },
@@ -56,6 +60,7 @@ const pages = [
     Component: AccountScreen,
     animation: 'slide_left',
     showAppBar: false,
+    showBottomNav: true,
     customHeader: () => null,
     title: 'Tài khoản'
   },
@@ -63,14 +68,16 @@ const pages = [
     pathname: '/api',
     Component: ApiScreen,
     animation: 'slide_left',
-    showAppBar: false,
-    customHeader: () => null,
+    showAppBar: true,
+    showBottomNav: false,
     title: 'Bridge APIs'
   },
   {
     pathname: '/about',
     Component: AboutScreen,
     animation: 'slide_left',
+    showAppBar: true,
+    showBottomNav: false,
     title: 'Thông tin'
   },
 ];
@@ -83,8 +90,10 @@ export const appRouterConfig: IRouterConfig = {
     Layouts: [MainLayout],
     navigationBar: {
       title: p.title,
-      visible: p.showAppBar !== false
+      visible: p.showAppBar !== false,
+      backIcon: p.pathname === '/' ? 'none' : 'arrow'
     },
+    showBottomNav: p.showBottomNav,
     animation: {
       type: p.animation as AnimationType
     }

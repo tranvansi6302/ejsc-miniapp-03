@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useLocation, useNavigate, useRouterStore } from 'ejsc-ma-router';
 import type { IRouterStoreState } from 'ejsc-ma-router';
 import { useNavBar } from 'ejsc-ma-component';
@@ -38,8 +39,8 @@ const MemoizedBottomBar = React.memo(({ show, items, currentPath }: IBottomBarPr
   const navigate = useNavigate();
   if (!show) return null;
 
-  return (
-    <div className="fixed bottom-0 left-0 w-full z-[100] h-[98px] flex flex-col justify-end pointer-events-none">
+  return createPortal(
+    <div className="fixed bottom-0 left-0 w-full z-[1000] h-[98px] flex flex-col justify-end pointer-events-none">
       <div className="absolute inset-x-0 bottom-0 h-[84px] pointer-events-auto overflow-hidden">
         <svg
           viewBox="0 0 400 84"
@@ -89,7 +90,8 @@ const MemoizedBottomBar = React.memo(({ show, items, currentPath }: IBottomBarPr
           );
         })}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 });
 
@@ -102,8 +104,8 @@ const MainLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
 
   const { updateNavBar } = useNavBar();
 
-  const currentPage = appRouterConfig.pages.find(p => p.pathname === pageLocation.pathname);
-  const showBottomNav = true;
+  const currentPage = (appRouterConfig.pages as any[]).find(p => p.pathname === pageLocation.pathname);
+  const showBottomNav = currentPage?.showBottomNav !== false;
 
   useEffect(() => {
     if (isActive && currentPage) {
