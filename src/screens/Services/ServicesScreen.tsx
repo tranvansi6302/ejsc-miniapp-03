@@ -116,7 +116,7 @@ const ServicesScreen: React.FC = () => {
             {FEATURED_SERVICES.map((item) => (
               <div
                 key={item.id}
-                className="flex-none w-[calc(100vw-40px)] h-[110px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 py-3 px-4 flex flex-col relative overflow-hidden snap-center"
+                className="flex-none w-[calc(100vw-40px)] h-[100px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 px-4 flex flex-col justify-center relative overflow-hidden snap-center"
               >
                 {/* Background Illustration */}
                 <div className="absolute right-[-20px] bottom-[-10px] opacity-5 transform rotate-[-15deg] z-0">
@@ -124,31 +124,41 @@ const ServicesScreen: React.FC = () => {
                 </div>
 
                 {/* Content Rows */}
-                <div className="flex-1 flex flex-col justify-between z-10 w-full">
+                <div className="flex flex-col gap-1 z-10 w-full">
                   {/* Top Row: Tag & Button */}
                   <div className="flex items-center justify-between w-full">
-                    <div className="bg-orange-50 px-3 py-0.5 rounded-full border border-orange-100 w-fit">
-                      <Text variant="sub" weight="bold" className="text-orange-600 uppercase rounded-full tracking-widest text-[8px]">{item.tag}</Text>
+                    <div className="bg-orange-50 px-1.5 py-0.5 rounded border border-orange-100 w-fit">
+                      <Text variant="sub" weight="bold" className="text-orange-600 uppercase tracking-widest text-[8px]">{item.tag}</Text>
                     </div>
-                    <button className="bg-ejsc-brand-sub px-3.5 py-1.5 rounded-full active:scale-95 flex items-center gap-2 transition-all shadow-sm z-20">
+                    <button className="bg-[#345C5A] px-3 py-1 rounded-full active:scale-95 transition-all shadow-sm z-20">
                       <Text variant="sub" weight="bold" className="text-white text-[10px]">Đặt ngay</Text>
-                      <ChevronRight size={10} className="text-white" />
                     </button>
                   </div>
 
                   {/* Bottom Row: Info & Icon */}
-                  <div className="flex items-end justify-between w-full">
-                    <div className="flex flex-col pb-0.5">
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex flex-col">
                       <Text variant="base" weight="bold" className="text-slate-900 leading-tight">
                         {item.name}
                       </Text>
-                      <div className="flex items-center gap-1.5 mt-0.5">
-                        <Text variant="sub" className="text-slate-500 text-[11px]">Giá từ</Text>
-                        <Text variant="sub" weight="bold" className="text-slate-800 text-[11px]">{item.price.split(' ')[0]}</Text>
+                      <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                        <div className="flex items-center gap-1">
+                          <Text variant="sub" className="text-slate-500 text-[10px]">Giá từ</Text>
+                          <Text variant="sub" weight="bold" className="text-slate-800 text-[10px]">{item.price.split(' ')[0]}</Text>
+                        </div>
+                        <div className="w-[1px] h-2.5 bg-slate-200" />
+                        <div className="flex items-center gap-0.5">
+                          {[1, 2, 3, 4, 5].map((s) => (
+                            <Star key={s} size={8} className="text-amber-400 fill-amber-400" />
+                          ))}
+                          <Text variant="sub" className="text-slate-500 text-[9px] ml-0.5">{item.rating}</Text>
+                        </div>
+                        <div className="w-0.5 h-0.5 bg-slate-300 rounded-full" />
+                        <Text variant="sub" className="text-slate-400 text-[9px]">{item.bookings} lượt đặt</Text>
                       </div>
                     </div>
 
-                    <div className="relative opacity-20 transform rotate-[10deg] -mb-2 -mr-1">
+                    <div className="relative opacity-20 transform rotate-[10deg] -mr-1">
                       {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 65 })}
                     </div>
                   </div>
@@ -182,7 +192,7 @@ const ServicesScreen: React.FC = () => {
                         {item.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <Text variant="sub" weight="semibold" className="text-slate-800 block truncate">{item.name}</Text>
+                        <Text variant="base" weight="semibold" className="text-slate-800 block truncate">{item.name}</Text>
                         <Text variant="sub" className="text-slate-400 mt-0.5 line-clamp-1 italic">{item.desc}</Text>
                       </div>
                     </div>

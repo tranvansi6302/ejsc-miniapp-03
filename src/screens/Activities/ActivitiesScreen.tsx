@@ -98,7 +98,7 @@ const ActivitiesScreen: React.FC = () => {
                   {/* Card Header */}
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
-                      <Text variant="sub" weight="semibold" className="text-slate-800">{item.service}</Text>
+                      <Text variant="base" weight="semibold" className="text-slate-800">{item.service}</Text>
                       <Text variant="sub" className="text-slate-400 mt-0.5">{item.time}</Text>
                     </div>
                     <div className="bg-emerald-50 px-2.5 py-1 rounded-ejsc">
