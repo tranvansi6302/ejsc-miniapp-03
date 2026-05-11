@@ -63,8 +63,8 @@ const ActivitiesScreen: React.FC = () => {
 
   return (
     <StandardPage hideAppBar contentClassName="!p-0 bg-[#F5F5F5]">
-      {/* Header - Adjusted for Safe Area */}
-      <div className="bg-white px-5 pt-24 pb-4">
+      {/* Sticky Header & Tabs Row */}
+      <div className="sticky top-0 z-50 bg-white px-5 pt-24 pb-4 border-b border-slate-50">
         <Text variant="h3" weight="bold" className="text-slate-900">Hoạt động</Text>
 
         {/* Horizontal Tabs */}
@@ -73,12 +73,12 @@ const ActivitiesScreen: React.FC = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-ejsc border transition-all whitespace-nowrap text-sm font-medium ${activeTab === tab
+              className={`px-4 py-1.5 rounded-full border transition-all whitespace-nowrap ${activeTab === tab
                 ? 'bg-ejsc-brand-sub border-ejsc-brand-sub text-white'
-                : 'bg-white border-slate-200 text-slate-500'
+                : 'bg-white border-slate-100 text-slate-500'
                 }`}
             >
-              <Text variant="sub" weight="medium" color={activeTab === tab ? 'white' : undefined}>{tab}</Text>
+              <Text variant="sub" weight="bold" className={activeTab === tab ? 'text-white' : 'text-slate-500'}>{tab}</Text>
             </button>
           ))}
         </div>
@@ -127,7 +127,7 @@ const ActivitiesScreen: React.FC = () => {
                   <div className="flex items-center justify-between pt-3 border-t border-slate-50">
                     <Text variant="base" className="text-slate-900">{item.price}</Text>
                     <button className="px-4 py-1.5 border border-slate-200 rounded-ejsc active:bg-slate-50 transition-colors">
-                      <Text variant="sub" weight="bold" className="text-slate-800">Đặt lại</Text>
+                      <Text variant="sub" weight="medium" className="text-slate-800">Đặt lại</Text>
                     </button>
                   </div>
                 </div>
