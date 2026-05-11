@@ -78,7 +78,7 @@ const ActivitiesScreen: React.FC = () => {
                 : 'bg-white border-slate-100 text-slate-500'
                 }`}
             >
-              <Text variant="sub" weight="bold" className={activeTab === tab ? 'text-white' : 'text-slate-500'}>{tab}</Text>
+              <Text variant="sub" weight="medium" className={activeTab === tab ? 'text-white' : 'text-slate-500'}>{tab}</Text>
             </button>
           ))}
         </div>
