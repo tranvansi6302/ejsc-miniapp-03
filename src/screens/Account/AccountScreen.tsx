@@ -121,9 +121,9 @@ const AccountScreen: React.FC = () => {
         {/* My Bookings Section */}
         <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 flex items-center justify-between border-b border-slate-50">
-            <Text variant="sub" weight="bold" className="text-slate-800">Đơn đặt của tôi</Text>
+            <Text variant="base" weight="bold" className="text-slate-800">Đơn đặt của tôi</Text>
             <div className="flex items-center gap-1 cursor-pointer active:opacity-60">
-              <Text variant="sub" className="text-slate-400">Xem lịch sử</Text>
+              <Text variant="base" className="text-slate-400">Xem lịch sử</Text>
               <ChevronRight size={12} className="text-slate-300" />
             </div>
           </div>
@@ -150,7 +150,7 @@ const AccountScreen: React.FC = () => {
           <div className="px-4 py-3 border-b border-slate-50 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Wallet size={16} className="text-orange-500" />
-              <Text variant="sub" weight="bold" className="text-slate-800">Tiện ích tài chính</Text>
+              <Text variant="base" weight="bold" className="text-slate-800">Tiện ích tài chính</Text>
             </div>
           </div>
           <div className="flex divide-x divide-slate-100">
@@ -193,7 +193,7 @@ const AccountScreen: React.FC = () => {
         {/* Account Utilities Section */}
         <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 border-b border-slate-50">
-            <Text variant="sub" weight="bold" className="text-slate-800">Tiện ích cá nhân</Text>
+            <Text variant="base" weight="bold" className="text-slate-800">Tiện ích cá nhân</Text>
           </div>
           <AccountMenuItem icon={<Crown size={18} className="text-amber-500" />} label="Gói hội viên" />
           <div className="mx-4 border-t border-slate-50" />
@@ -205,7 +205,7 @@ const AccountScreen: React.FC = () => {
         {/* Settings & Support Section */}
         <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 border-b border-slate-50">
-            <Text variant="sub" weight="bold" className="text-slate-800">Cài đặt & Hỗ trợ</Text>
+            <Text variant="base" weight="bold" className="text-slate-800">Cài đặt & Hỗ trợ</Text>
           </div>
           <AccountMenuItem icon={<BellRing size={18} className="text-orange-500" />} label="Cài đặt thông báo" />
           <div className="mx-4 border-t border-slate-50" />
@@ -217,7 +217,7 @@ const AccountScreen: React.FC = () => {
         {/* Legal Information Section */}
         <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 border-b border-slate-50">
-            <Text variant="sub" weight="bold" className="text-slate-800">Thông tin & Pháp lý</Text>
+            <Text variant="base" weight="bold" className="text-slate-800">Thông tin & Pháp lý</Text>
           </div>
           <AccountMenuItem icon={<ShieldCheck size={18} className="text-indigo-500" />} label="Chính sách bảo mật" />
           <div className="mx-4 border-t border-slate-50" />

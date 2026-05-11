@@ -1,5 +1,5 @@
 import { apisAsync } from 'ejsc-ma-api';
-import { StandardPage, Text, toast, Sheet } from 'ejsc-ma-component';
+import { Sheet, StandardPage, Text, toast } from 'ejsc-ma-component';
 import {
   ChevronRight,
   Droplets,
@@ -104,7 +104,7 @@ const ServicesScreen: React.FC = () => {
         {/* Featured Services - New Banner Carousel Style */}
         <div className="flex flex-col gap-4 mt-4">
           <div className="px-5 flex items-center justify-between">
-            <Text variant="sub" weight="bold" className="text-slate-800">Dịch vụ nổi bật</Text>
+            <Text variant="base" weight="bold" className="text-slate-800">Dịch vụ nổi bật</Text>
             <div className="flex gap-1">
               {[0, 1, 2].map((i) => (
                 <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-slate-800 w-3' : 'bg-slate-200'}`} />
@@ -116,29 +116,42 @@ const ServicesScreen: React.FC = () => {
             {FEATURED_SERVICES.map((item) => (
               <div
                 key={item.id}
-                className="flex-none w-[calc(100vw-40px)] h-[150px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 p-6 flex relative overflow-hidden snap-center"
+                className="flex-none w-[calc(100vw-40px)] h-[110px] bg-linear-to-br from-orange-50/60 via-white to-emerald-50/40 rounded-ejsc border border-slate-100 py-3 px-4 flex flex-col relative overflow-hidden snap-center"
               >
-                {/* Content Left */}
-                <div className="flex-1 flex flex-col gap-5  z-10">
-                  <div className="flex flex-col gap-1">
-                    <Text variant="sub" weight="bold" className="text-orange-600 uppercase tracking-widest text-[10px]">{item.tag}</Text>
-                    <Text variant="h3" weight="bold" className="text-slate-900 leading-tight">
-                      {item.name}
-                    </Text>
-                    <Text variant="sub" className="text-slate-500">Giá chỉ từ <span className="font-bold text-slate-800">{item.price.split(' ')[0]}</span></Text>
-                  </div>
-
-                  <button className="bg-ejsc-brand-sub px-6 py-2.5 rounded-full w-fit active:scale-95 transition-all">
-                    <Text variant="sub" weight="bold" className="text-white">Đặt ngay</Text>
-                  </button>
-                </div>
-
-                {/* Illustration Right */}
-                <div className="absolute right-[-20px] bottom-[-10px] opacity-20 transform rotate-[-15deg]">
+                {/* Background Illustration */}
+                <div className="absolute right-[-20px] bottom-[-10px] opacity-5 transform rotate-[-15deg] z-0">
                   {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 140 })}
                 </div>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 drop-shadow-xl transform hover:scale-110 transition-transform">
-                  {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 80 })}
+
+                {/* Content Rows */}
+                <div className="flex-1 flex flex-col justify-between z-10 w-full">
+                  {/* Top Row: Tag & Button */}
+                  <div className="flex items-center justify-between w-full">
+                    <div className="bg-orange-50 px-3 py-0.5 rounded-full border border-orange-100 w-fit">
+                      <Text variant="sub" weight="bold" className="text-orange-600 uppercase rounded-full tracking-widest text-[8px]">{item.tag}</Text>
+                    </div>
+                    <button className="bg-ejsc-brand-sub px-3.5 py-1.5 rounded-full active:scale-95 flex items-center gap-2 transition-all shadow-sm z-20">
+                      <Text variant="sub" weight="bold" className="text-white text-[10px]">Đặt ngay</Text>
+                      <ChevronRight size={10} className="text-white" />
+                    </button>
+                  </div>
+
+                  {/* Bottom Row: Info & Icon */}
+                  <div className="flex items-end justify-between w-full">
+                    <div className="flex flex-col pb-0.5">
+                      <Text variant="base" weight="bold" className="text-slate-900 leading-tight">
+                        {item.name}
+                      </Text>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <Text variant="sub" className="text-slate-500 text-[11px]">Giá từ</Text>
+                        <Text variant="sub" weight="bold" className="text-slate-800 text-[11px]">{item.price.split(' ')[0]}</Text>
+                      </div>
+                    </div>
+
+                    <div className="relative opacity-20 transform rotate-[10deg] -mb-2 -mr-1">
+                      {React.cloneElement(item.icon as React.ReactElement<{ size: number }>, { size: 65 })}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
