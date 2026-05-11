@@ -1,9 +1,7 @@
-import React from 'react';
-import { Search, ChevronDown } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Search, ChevronDown, MapPin } from 'lucide-react';
 import { Text } from 'ejsc-ma-component';
 import appLogo from '../../../assets/icons/Icon.png';
-import appDiscount from '../../../assets/icons/discount.png';
-import appMyBiz from '../../../assets/icons/myBiz.png';
 import bgHeader from '../../../assets/images/bg-header.jpg';
 import { apisAsync } from 'ejsc-ma-api';
 
@@ -12,6 +10,22 @@ interface HomeHeaderProps {
 }
 
 export const HomeHeader: React.FC<HomeHeaderProps> = ({ onNavigate }) => {
+  const [city, setCity] = useState<string>('');
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
+        const res = await apisAsync.getUserLocation();
+        if (res.success && res.data?.city) {
+          setCity(res.data.city);
+        }
+      } catch (e) {
+        console.error('Fetch location failed:', e);
+      }
+    };
+    fetchLocation();
+  }, []);
+
   return (
     <>
       {/* Landscape Banner Background */}
@@ -41,33 +55,17 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({ onNavigate }) => {
               className="flex-1 bg-transparent border-none outline-none text-ejsc-sub font-normal text-white placeholder:text-white/60 min-w-0"
             />
           </div>
-          <div className="flex items-center gap-0.5 shrink-0 px-1 border-l border-white/10 pl-2 active:opacity-70 transition-opacity cursor-pointer">
-            <span className="text-ejsc-sub text-white/90 font-normal whitespace-nowrap">Khu vực</span>
+          <div className="flex items-center gap-1 shrink-0 px-1 border-l border-white/10 pl-2 active:opacity-70 transition-opacity cursor-pointer">
+            <MapPin size={12} className="text-white/70" />
+            <span className="text-ejsc-sub text-white/90 font-normal whitespace-nowrap overflow-hidden text-ellipsis max-w-[80px]">
+              {city || 'Khu vực'}
+            </span>
             <ChevronDown size={14} className="text-white/70 shrink-0" />
           </div>
         </div>
 
-        {/* Reserved space for native controls (Three dots & Close button) */}
+        {/* Reserved space for native controls */}
         <div className="w-[100px] shrink-0" />
-
-        {/* 
-        <div className="w-11 h-11 shrink-0 flex items-center justify-center select-none active:scale-95 transition-transform bg-transparent rounded-ejsc-main border border-white/20 shadow-sm backdrop-blur-md overflow-hidden">
-          <img src={appDiscount} alt="discount" className="w-full h-full object-cover" />
-        </div>
-
-        <div
-          onClick={() => {
-            apisAsync.openNativeWindow({
-              url: 'https://mini-app-debugger-z6kv.vercel.app/',
-              title: 'My Biz'
-            });
-          }}
-          className="flex items-center gap-2 shrink-0 px-3.5 h-11 rounded-ejsc-main bg-transparent select-none active:scale-95 transition-transform shadow-sm border border-white/20 backdrop-blur-md"
-        >
-          <img src={appMyBiz} alt="mybiz" className="w-5 h-5 object-contain" />
-          <Text weight='medium' variant="caption" className="text-white tracking-wider">Mybiz</Text>
-        </div>
-        */}
       </div>
     </>
   );

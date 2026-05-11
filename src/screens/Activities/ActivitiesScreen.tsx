@@ -74,7 +74,7 @@ const ActivitiesScreen: React.FC = () => {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-5 py-2 rounded-full border transition-all whitespace-nowrap text-sm font-medium ${activeTab === tab
-                ? 'bg-slate-800 border-slate-800 text-white'
+                ? 'bg-ejsc-brand-sub border-ejsc-brand-sub text-white'
                 : 'bg-white border-slate-200 text-slate-500'
                 }`}
             >
