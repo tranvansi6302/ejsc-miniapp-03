@@ -73,7 +73,7 @@ const ActivitiesScreen: React.FC = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full border transition-all whitespace-nowrap text-sm font-medium ${activeTab === tab
+              className={`px-5 py-2 rounded-ejsc border transition-all whitespace-nowrap text-sm font-medium ${activeTab === tab
                 ? 'bg-ejsc-brand-sub border-ejsc-brand-sub text-white'
                 : 'bg-white border-slate-200 text-slate-500'
                 }`}
@@ -94,14 +94,14 @@ const ActivitiesScreen: React.FC = () => {
 
             <div className="flex flex-col gap-3">
               {group.items.map((item) => (
-                <div key={item.id} className="bg-white rounded-2xl p-4 border border-slate-100 flex flex-col gap-4">
+                <div key={item.id} className="bg-white rounded-ejsc p-4 border border-slate-100 flex flex-col gap-4">
                   {/* Card Header */}
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
                       <Text variant="sub" weight="bold" className="text-slate-800">{item.service}</Text>
                       <Text variant="sub" className="text-slate-400 mt-0.5">{item.time}</Text>
                     </div>
-                    <div className="bg-emerald-50 px-2.5 py-1 rounded-lg">
+                    <div className="bg-emerald-50 px-2.5 py-1 rounded-ejsc">
                       <Text variant="sub" weight="bold" className="text-emerald-600">{item.status}</Text>
                     </div>
                   </div>
@@ -126,7 +126,7 @@ const ActivitiesScreen: React.FC = () => {
                   {/* Card Footer */}
                   <div className="flex items-center justify-between pt-3 border-t border-slate-50">
                     <Text variant="base" className="text-slate-900">{item.price}</Text>
-                    <button className="px-4 py-1.5 border border-slate-200 rounded-lg active:bg-slate-50 transition-colors">
+                    <button className="px-4 py-1.5 border border-slate-200 rounded-ejsc active:bg-slate-50 transition-colors">
                       <Text variant="sub" weight="bold" className="text-slate-800">Đặt lại</Text>
                     </button>
                   </div>

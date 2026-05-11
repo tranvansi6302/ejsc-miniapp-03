@@ -64,7 +64,7 @@ const AccountScreen: React.FC = () => {
           <Button
             theme="brand"
             block
-            className="h-14 rounded-2xl font-bold bg-orange-600 border-none"
+            className="h-14 rounded-ejsc font-bold bg-orange-600 border-none"
             onClick={fetchUser}
             startIcon={<RefreshCw size={18} />}
           >
@@ -107,9 +107,9 @@ const AccountScreen: React.FC = () => {
         </div>
 
         {/* VIP Banner */}
-        <div className="mt-6 bg-[#FFFBEC] rounded-xl p-3 flex items-center justify-between border border-[#FFE7A5]">
+        <div className="mt-6 bg-[#FFFBEC] rounded-ejsc p-3 flex items-center justify-between border border-[#FFE7A5]">
           <div className="flex items-center gap-2">
-            <div className="bg-amber-500 text-white font-black px-1.5 py-0.5 rounded text-[10px] italic">VIP</div>
+            <div className="bg-amber-500 text-white font-black px-1.5 py-0.5 rounded-ejsc text-[10px] italic">VIP</div>
             <Text variant="sub" weight="bold" className="text-amber-900">Giảm thêm 15% cho mọi dịch vụ</Text>
           </div>
           <ChevronRight size={14} className="text-amber-400" />
@@ -119,7 +119,7 @@ const AccountScreen: React.FC = () => {
       <div className="px-3 pb-24 flex flex-col gap-3 mt-3">
 
         {/* My Bookings Section */}
-        <div className="bg-white rounded-xl overflow-hidden">
+        <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 flex items-center justify-between border-b border-slate-50">
             <Text variant="sub" weight="bold" className="text-slate-800">Đơn đặt của tôi</Text>
             <div className="flex items-center gap-1 cursor-pointer active:opacity-60">
@@ -146,7 +146,7 @@ const AccountScreen: React.FC = () => {
         </div>
 
         {/* My Wallet Section - Styled Up */}
-        <div className="bg-white rounded-xl overflow-hidden border border-orange-50/50">
+        <div className="bg-white rounded-ejsc overflow-hidden border border-orange-50/50">
           <div className="px-4 py-3 border-b border-slate-50 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Wallet size={16} className="text-orange-500" />
@@ -156,7 +156,7 @@ const AccountScreen: React.FC = () => {
           <div className="flex divide-x divide-slate-100">
             <div className="flex-1 p-4 bg-linear-to-br from-orange-50/50 to-white">
               <div className="flex items-center gap-1.5 mb-1">
-                <div className="bg-orange-500 text-white text-[8px] font-bold px-1 py-0.5 rounded">365</div>
+                <div className="bg-orange-500 text-white text-[8px] font-bold px-1 py-0.5 rounded-ejsc">365</div>
                 <Text variant="sub" weight="bold" className="text-slate-700">Ví 365</Text>
               </div>
               <div className="flex items-baseline gap-1 mt-2">
@@ -191,7 +191,7 @@ const AccountScreen: React.FC = () => {
         </div>
 
         {/* Account Utilities Section */}
-        <div className="bg-white rounded-xl overflow-hidden">
+        <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 border-b border-slate-50">
             <Text variant="sub" weight="bold" className="text-slate-800">Tiện ích cá nhân</Text>
           </div>
@@ -203,7 +203,7 @@ const AccountScreen: React.FC = () => {
         </div>
 
         {/* Settings & Support Section */}
-        <div className="bg-white rounded-xl overflow-hidden">
+        <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 border-b border-slate-50">
             <Text variant="sub" weight="bold" className="text-slate-800">Cài đặt & Hỗ trợ</Text>
           </div>
@@ -215,7 +215,7 @@ const AccountScreen: React.FC = () => {
         </div>
 
         {/* Legal Information Section */}
-        <div className="bg-white rounded-xl overflow-hidden">
+        <div className="bg-white rounded-ejsc overflow-hidden">
           <div className="px-4 py-3 border-b border-slate-50">
             <Text variant="sub" weight="bold" className="text-slate-800">Thông tin & Pháp lý</Text>
           </div>
@@ -224,7 +224,7 @@ const AccountScreen: React.FC = () => {
           <AccountMenuItem icon={<FileText size={18} className="text-slate-500" />} label="Điều khoản & Chính sách" />
         </div>
 
-        <button className="mt-2 w-full py-4 bg-white rounded-xl flex items-center justify-center gap-2 active:bg-slate-50 transition-colors mb-20">
+        <button className="mt-2 w-full py-4 bg-white rounded-ejsc flex items-center justify-center gap-2 active:bg-slate-50 transition-colors mb-20">
           <LogOut size={18} className="text-red-500" />
           <Text variant="base" weight="bold" className="text-red-500">Đăng xuất</Text>
         </button>
@@ -241,7 +241,7 @@ const AccountMenuItem: React.FC<{
   hideArrow?: boolean;
 }> = ({ icon, label, className, hideArrow }) => (
   <div className="flex items-center gap-3 px-4 py-4 active:bg-slate-50 transition-colors cursor-pointer group">
-    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-active:scale-90 transition-transform">
+    <div className="w-8 h-8 rounded-ejsc bg-slate-50 flex items-center justify-center group-active:scale-90 transition-transform">
       {icon}
     </div>
     <Text variant="base" weight="medium" className={`flex-1 text-slate-700 ${className}`}>{label}</Text>

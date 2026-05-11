@@ -52,7 +52,7 @@ const HomeScreen: React.FC = () => {
         />
 
         {/* Main Curved Content Container */}
-        <div className="relative z-20 bg-gradient-to-b from-ejsc-bg-page via-white via-[10%] to-white px-4 pt-5 pb-8 flex flex-col gap-2.5 min-h-screen -mt-2 shadow-2xl rounded-t-(--ejsc-sys-radius)">
+        <div className="relative z-20 bg-linear-to-b from-ejsc-bg-page via-white via-10% to-white px-4 pt-5 pb-8 flex flex-col gap-2.5 min-h-screen -mt-2 shadow-2xl rounded-t-(--ejsc-sys-radius)">
           <HomeQuickStats />
           <HomeQuickAction />
           <HomeServiceGrid />
