@@ -67,9 +67,9 @@ export const appRouterConfig: IRouterConfig = {
 
 export const bottomTabBarConfig = {
   items: [
-    { id: 'home', name: 'Trang chủ', path: '/', icon: 'link' },
-    { id: 'api', name: 'API', path: '/api', icon: 'api' },
-    { id: 'about', name: 'Giới thiệu', path: '/about', icon: 'about' },
-    { id: 'account', name: 'Tài khoản', path: '/account', icon: 'account' },
+    { id: 'home', name: 'Trang chủ', path: '/', icon: 'home' },
+    { id: 'api', name: 'API', path: '/api', icon: 'code' },
+    { id: 'about', name: 'Giới thiệu', path: '/about', icon: 'circle-info' },
+    { id: 'account', name: 'Tài khoản', path: '/account', icon: 'user' },
   ]
 };
