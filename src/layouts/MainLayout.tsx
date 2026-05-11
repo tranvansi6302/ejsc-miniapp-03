@@ -26,8 +26,8 @@ const MainLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <main className="flex-1 pb-[80px]">
+    <div className="app-layout">
+      <main className="app-main">
         {children}
       </main>
 
