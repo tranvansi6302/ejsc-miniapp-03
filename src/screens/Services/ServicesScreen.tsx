@@ -112,7 +112,7 @@ const ServicesScreen: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 snap-x snap-mandatory pb-2">
+          <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 snap-x snap-mandatory">
             {FEATURED_SERVICES.map((item) => (
               <div
                 key={item.id}
@@ -127,10 +127,16 @@ const ServicesScreen: React.FC = () => {
                 <div className="flex-1 flex flex-col justify-between z-10 w-full">
                   {/* Top Row: Tag & Button */}
                   <div className="flex items-center justify-between w-full">
-                    <div className="bg-orange-50 px-1.5 py-0.5 rounded border border-orange-100 w-fit">
-                      <Text variant="sub" weight="bold" className="text-orange-600 uppercase tracking-widest text-[8px]">{item.tag}</Text>
+                    <div className={`px-3 py-0.5 rounded-full border w-fit ${item.tag === 'Hot' ? 'bg-red-50 border-red-100' :
+                      item.tag === 'Phổ biến' ? 'bg-emerald-50 border-emerald-100' :
+                        'bg-orange-50 border-orange-100'
+                      }`}>
+                      <Text variant="caption" weight="medium" className={`uppercase tracking-widest text-[8px] ${item.tag === 'Hot' ? 'text-red-600' :
+                        item.tag === 'Phổ biến' ? 'text-emerald-600' :
+                          'text-orange-600'
+                        }`}>{item.tag}</Text>
                     </div>
-                    <button className="bg-[#345C5A] px-3 py-1 rounded-full active:scale-95 transition-all shadow-sm z-20">
+                    <button className="bg-ejsc-brand-sub px-3 py-1 rounded-full active:scale-95 transition-all shadow-sm z-20">
                       <Text variant="sub" weight="bold" className="text-white text-[10px]">Đặt ngay</Text>
                     </button>
                   </div>
@@ -141,17 +147,17 @@ const ServicesScreen: React.FC = () => {
                       <Text variant="base" weight="semibold" className="text-slate-700 leading-tight">
                         {item.name}
                       </Text>
-                      <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                      <div className="flex items-center gap-2 mt-1 flex-wrap">
                         <div className="flex items-center gap-1">
-                          <Text variant="sub" className="text-slate-500 text-[10px]">Giá từ</Text>
+                          <Text variant="sub" className="text-slate-500 text-[10px]">Giá chỉ từ: </Text>
                           <Text variant="sub" weight="bold" className="text-slate-800 text-[10px]">{item.price.split(' ')[0]}</Text>
                         </div>
                         <div className="w-[1px] h-2.5 bg-slate-200" />
                         <div className="flex items-center gap-0.5">
                           {[1, 2, 3, 4, 5].map((s) => (
-                            <Star key={s} size={8} className="text-amber-400 fill-amber-400" />
+                            <Star key={s} size={12} className="text-amber-400 fill-amber-400" />
                           ))}
-                          <Text variant="sub" className="text-slate-500 text-[9px] ml-0.5">{item.rating}</Text>
+                          <Text variant="sub" className="text-slate-500 text-[9px] ml-1.5">{item.rating}</Text>
                         </div>
                         <div className="w-0.5 h-0.5 bg-slate-300 rounded-full" />
                         <Text variant="sub" className="text-slate-400 text-[9px]">{item.bookings} lượt đặt</Text>
@@ -175,8 +181,8 @@ const ServicesScreen: React.FC = () => {
               <div className="flex items-center justify-between px-1">
                 <Text variant="base" weight="bold" className="text-ejsc-text-main">{section.category}</Text>
                 <div className="flex items-center gap-1 cursor-pointer">
-                  <Text variant="sub" weight="bold" className="text-orange-600">Tất cả</Text>
-                  <ChevronRight size={12} className="text-orange-600" />
+                  <Text variant="sub" weight="bold" className="text-ejsc-brand">Tất cả</Text>
+                  <ChevronRight size={12} className="text-ejsc-brand" />
                 </div>
               </div>
 
@@ -245,14 +251,14 @@ const ServicesScreen: React.FC = () => {
       >
         <div className="p-5 flex flex-col gap-8 pb-10">
           <div className="flex flex-col gap-4">
-            <Text variant="sub" weight="bold" className="text-slate-900">Sắp xếp theo</Text>
+            <Text variant="base" weight="bold" className="text-slate-900">Sắp xếp theo</Text>
             <div className="flex flex-wrap gap-2">
               {['Mặc định', 'Giá thấp - cao', 'Giá cao - thấp', 'Đánh giá tốt'].map((opt) => (
                 <button
                   key={opt}
                   className={`px-5 py-2.5 rounded-ejsc border transition-all ${opt === 'Mặc định' ? 'bg-orange-50 border-orange-200 text-orange-600' : 'bg-white border-slate-100 text-slate-600'}`}
                 >
-                  <Text variant="sub" weight="medium" className={opt === 'Mặc định' ? 'text-orange-600' : 'text-slate-600'}>
+                  <Text variant="sub" className={opt === 'Mặc định' ? 'text-orange-600' : 'text-slate-600'}>
                     {opt}
                   </Text>
                 </button>
@@ -261,14 +267,14 @@ const ServicesScreen: React.FC = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <Text variant="sub" weight="bold" className="text-slate-900">Khoảng giá</Text>
+            <Text variant="base" weight="bold" className="text-slate-900">Khoảng giá</Text>
             <div className="flex flex-wrap gap-2">
               {['Dưới 200k', '200k - 500k', 'Trên 500k'].map((opt) => (
                 <button
                   key={opt}
                   className="px-5 py-2.5 rounded-ejsc border bg-white border-slate-100 text-slate-600 transition-all active:bg-slate-50"
                 >
-                  <Text variant="sub" weight="medium" className="text-slate-600">{opt}</Text>
+                  <Text variant="sub" className="text-slate-600">{opt}</Text>
                 </button>
               ))}
             </div>
@@ -276,9 +282,9 @@ const ServicesScreen: React.FC = () => {
 
           <button
             onClick={() => setIsFilterOpen(false)}
-            className="w-full h-14 bg-orange-600 rounded-ejsc flex items-center justify-center active:opacity-90 transition-all mt-4"
+            className="w-full h-14 bg-ejsc-brand rounded-ejsc flex items-center justify-center active:opacity-90 transition-all mt-4"
           >
-            <Text variant="sub" weight="bold" className="text-white">Áp dụng bộ lọc</Text>
+            <Text variant="base" weight="medium" className="text-white">Áp dụng bộ lọc</Text>
           </button>
         </div>
       </Sheet>
