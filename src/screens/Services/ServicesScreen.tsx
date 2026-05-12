@@ -66,7 +66,7 @@ const ServicesScreen: React.FC = () => {
   return (
     <StandardPage hideAppBar contentClassName="!p-0 bg-[#F5F5F5]">
       {/* Sticky Header & Search Bar Row */}
-      <div className="sticky top-0 z-50 bg-white px-5 pt-24 pb-6 flex flex-col gap-5 border-b border-slate-50">
+      <div className="sticky top-0 z-50 bg-white px-5 pt-20 pb-6 flex flex-col gap-5 border-b border-slate-50">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <Text variant="h3" weight="bold" className="text-slate-900">Khám phá dịch vụ</Text>
