@@ -67,7 +67,7 @@ const ServicesScreen: React.FC = () => {
     <StandardPage hideAppBar contentClassName="!p-0 !bg-[#F5F5F5]">
       {/* Sticky Header & Search Bar Row */}
       <div className="pb-10 bg-[#F5F5F5] min-h-screen">
-        <div className="sticky top-0 z-50 bg-white px-5 pt-20 pb-6 flex flex-col gap-5 border-b border-slate-50">
+        <div className="sticky top-0 z-50 bg-white px-5 pt-20 pb-6 flex flex-col gap-5 border-b border-slate-50 [will-change:transform]">
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
               <Text variant="h3" weight="bold" className="text-slate-900">Khám phá dịch vụ</Text>
@@ -79,7 +79,7 @@ const ServicesScreen: React.FC = () => {
               </div>
             </div>
           </div>
-
+ 
           {/* Search Bar & Filter Row */}
           <div className="flex items-center gap-3">
             <div className="flex-1 bg-slate-50 border border-slate-100 rounded-ejsc px-4 h-14 flex items-center gap-3">
@@ -100,7 +100,7 @@ const ServicesScreen: React.FC = () => {
             </button>
           </div>
         </div>
-
+ 
         <div className="pb-24 flex flex-col bg-[#F5F5F5]">
           {/* Featured Services - New Banner Carousel Style */}
           <div className="flex flex-col gap-4 mt-6">
@@ -112,8 +112,8 @@ const ServicesScreen: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 snap-x snap-mandatory">
+ 
+            <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 snap-x snap-mandatory [-webkit-overflow-scrolling:touch]">
               {FEATURED_SERVICES.map((item) => (
                 <div
                   key={item.id}
