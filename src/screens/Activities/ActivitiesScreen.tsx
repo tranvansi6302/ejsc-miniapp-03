@@ -63,78 +63,80 @@ const ActivitiesScreen: React.FC = () => {
 
   return (
     <StandardPage hideAppBar contentClassName="!p-0 bg-[#F5F5F5]">
-      {/* Sticky Header & Tabs Row */}
-      <div className="sticky top-0 z-50 bg-white px-5 pt-24 pb-4 border-b border-slate-50">
-        <Text variant="h3" weight="bold" className="text-slate-900">Hoạt động</Text>
+      <div className="pb-10">
+        {/* Sticky Header & Tabs Row */}
+        <div className="sticky top-0 z-50 bg-white px-5 pt-20 pb-4 border-b border-slate-50">
+          <Text variant="h3" weight="bold" className="text-slate-900">Hoạt động</Text>
 
-        {/* Horizontal Tabs */}
-        <div className="flex gap-2 mt-4 overflow-x-auto no-scrollbar pb-1">
-          {CATEGORIES.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-1.5 rounded-full border transition-all whitespace-nowrap ${activeTab === tab
-                ? 'bg-ejsc-brand-sub border-ejsc-brand-sub text-white'
-                : 'bg-white border-slate-100 text-slate-500'
-                }`}
-            >
-              <Text variant="sub" weight="medium" className={activeTab === tab ? 'text-white' : 'text-slate-500'}>{tab}</Text>
-            </button>
+          {/* Horizontal Tabs */}
+          <div className="flex gap-2 mt-4 overflow-x-auto no-scrollbar pb-1">
+            {CATEGORIES.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-1.5 rounded-full border transition-all whitespace-nowrap ${activeTab === tab
+                  ? 'bg-ejsc-brand-sub border-ejsc-brand-sub text-white'
+                  : 'bg-white border-slate-100 text-slate-500'
+                  }`}
+              >
+                <Text variant="sub" weight="medium" className={activeTab === tab ? 'text-white' : 'text-slate-500'}>{tab}</Text>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Activity List */}
+        <div className="px-4 pb-24">
+          {ACTIVITIES.map((group) => (
+            <div key={group.date} className="mt-6">
+              <Text variant="sub" className="text-slate-400 font-bold ml-1 mb-3 block">
+                {group.date}
+              </Text>
+
+              <div className="flex flex-col gap-3">
+                {group.items.map((item) => (
+                  <div key={item.id} className="bg-white rounded-ejsc p-4 border border-slate-100 flex flex-col gap-4">
+                    {/* Card Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col">
+                        <Text variant="base" weight="semibold" className="text-slate-800">{item.service}</Text>
+                        <Text variant="sub" className="text-slate-400 mt-0.5">{item.time}</Text>
+                      </div>
+                      <div className="bg-emerald-50 px-2.5 py-1 rounded-ejsc">
+                        <Text variant="sub" weight="semibold" className="text-emerald-600">{item.status}</Text>
+                      </div>
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 flex flex-col gap-2">
+                        <div className="flex items-start gap-2">
+                          <MapPin size={14} className="text-slate-300 mt-1 shrink-0" />
+                          <Text variant="sub" className="text-slate-600 leading-tight">{item.address}</Text>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Clock size={14} className="text-slate-300 mt-1 shrink-0" />
+                          <Text variant="sub" className="text-slate-500 leading-tight italic">{item.detail}</Text>
+                        </div>
+                      </div>
+                      <div className={`w-12 h-12 ${item.iconBg} rounded-full flex items-center justify-center shrink-0`}>
+                        {item.icon}
+                      </div>
+                    </div>
+
+                    {/* Card Footer */}
+                    <div className="flex items-center justify-between pt-3 border-t border-slate-50">
+                      <Text variant="base" weight='semibold' className="text-ejsc-brand-sub">{item.price}</Text>
+                      <button className="px-4 py-1.5 border border-slate-200 rounded-ejsc active:bg-slate-50 transition-colors">
+                        <Text variant="sub" weight="medium" className="text-slate-800">Đặt lại</Text>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-      </div>
-
-      {/* Activity List */}
-      <div className="px-4 pb-24">
-        {ACTIVITIES.map((group) => (
-          <div key={group.date} className="mt-6">
-            <Text variant="sub" className="text-slate-400 font-bold ml-1 mb-3 block">
-              {group.date}
-            </Text>
-
-            <div className="flex flex-col gap-3">
-              {group.items.map((item) => (
-                <div key={item.id} className="bg-white rounded-ejsc p-4 border border-slate-100 flex flex-col gap-4">
-                  {/* Card Header */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <Text variant="base" weight="semibold" className="text-slate-800">{item.service}</Text>
-                      <Text variant="sub" className="text-slate-400 mt-0.5">{item.time}</Text>
-                    </div>
-                    <div className="bg-emerald-50 px-2.5 py-1 rounded-ejsc">
-                      <Text variant="sub" weight="semibold" className="text-emerald-600">{item.status}</Text>
-                    </div>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 flex flex-col gap-2">
-                      <div className="flex items-start gap-2">
-                        <MapPin size={14} className="text-slate-300 mt-1 shrink-0" />
-                        <Text variant="sub" className="text-slate-600 leading-tight">{item.address}</Text>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <Clock size={14} className="text-slate-300 mt-1 shrink-0" />
-                        <Text variant="sub" className="text-slate-500 leading-tight italic">{item.detail}</Text>
-                      </div>
-                    </div>
-                    <div className={`w-12 h-12 ${item.iconBg} rounded-full flex items-center justify-center shrink-0`}>
-                      {item.icon}
-                    </div>
-                  </div>
-
-                  {/* Card Footer */}
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-50">
-                    <Text variant="base" weight='semibold' className="text-ejsc-brand-sub">{item.price}</Text>
-                    <button className="px-4 py-1.5 border border-slate-200 rounded-ejsc active:bg-slate-50 transition-colors">
-                      <Text variant="sub" weight="medium" className="text-slate-800">Đặt lại</Text>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
       </div>
     </StandardPage>
   );
