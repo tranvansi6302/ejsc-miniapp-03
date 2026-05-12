@@ -27,8 +27,8 @@ importers:
         specifier: latest
         version: 1.0.7
       ejsc-ma-component:
-        specifier: 1.0.40
-        version: 1.0.40(@types/react@19.2.14)(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react-i18next@17.0.7(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
+        specifier: 1.0.42
+        version: 1.0.42(@types/react@19.2.14)(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react-i18next@17.0.7(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
       ejsc-ma-router:
         specifier: latest
         version: 1.0.3(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
@@ -1444,8 +1444,8 @@ packages:
     resolution: {integrity: sha512-KrFlPMr3OmizJ18hNqxnBlXCKQPPTI7UT5DVCz/Oltp/MuZ+FBAdjotxFjLcCEj3NReqSQtt/bDB+FwYQbX48A==}
     hasBin: true
 
-  ejsc-ma-component@1.0.40:
-    resolution: {integrity: sha512-KbZPcpRbshaw9dNRgT9KlzOAEu3we+L4QTfQBo88vKSUhQ1AwVsQ2Rkp/HBK2bm8hiKIXsAt7hnRYaji68I0sw==}
+  ejsc-ma-component@1.0.42:
+    resolution: {integrity: sha512-OA5MdENJVXeR8iedEIu5pQ7jEVKYWqEBluALBQIdpdOYbEe/YNvXJbE+tHyJSg8VRy+Hg1G4MqnpFN680/esvQ==}
     peerDependencies:
       i18next: '>=24.0.0'
       react: '>=19.0.0'
@@ -1454,13 +1454,6 @@ packages:
 
   ejsc-ma-router@1.0.3:
     resolution: {integrity: sha512-IycrpfGTXSFTamH8jnd8TkDJqlpKVLCb3nKYE38fkoN9itfdLJvS/7qkh0GEPOvYz1WeptSzL4McsaBEZ5koxQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: '>=19.0.0'
-      react-dom: '>=19.0.0'
-
-  ejsc-ma-router@1.0.4:
-    resolution: {integrity: sha512-2UpHGpPJdA8Ts05emr6Xy1Ydx+I6rbeN5XZmX1zCawnVrLS06oFTjdWgsE+IqAYziW+yy5phz3xC6cKl825GdA==}
     engines: {node: '>=18'}
     peerDependencies:
       react: '>=19.0.0'
@@ -2372,8 +2365,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  tailwind-merge@3.5.0:
-    resolution: {integrity: sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A==}
+  tailwind-merge@3.6.0:
+    resolution: {integrity: sha512-uxL7qAVQriqRQPAyK3pj66VqskWqoZ37PW94jwOTwNfq/z9oyu1V+eqrZqtR2+fCiXdYOZe/Modt8GtvqNzu+w==}
 
   tailwindcss@4.2.4:
     resolution: {integrity: sha512-HhKppgO81FQof5m6TEnuBWCZGgfRAWbaeOaGT00KOy/Pf/j6oUihdvBpA7ltCeAvZpFhW3j0PTclkxsd4IXYDA==}
@@ -3904,12 +3897,12 @@ snapshots:
       - utf-8-validate
       - yaml
 
-  ejsc-ma-component@1.0.40(@types/react@19.2.14)(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react-i18next@17.0.7(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
+  ejsc-ma-component@1.0.42(@types/react@19.2.14)(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react-i18next@17.0.7(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
     dependencies:
       classnames: 2.5.1
       clsx: 2.1.1
       ejsc-ma-api: 1.0.7
-      ejsc-ma-router: 1.0.4(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
+      ejsc-ma-router: 1.0.3(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
       framer-motion: 12.38.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       i18next: 26.0.10(typescript@6.0.3)
       lucide-react: 0.473.0(react@19.2.6)
@@ -3917,7 +3910,7 @@ snapshots:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       react-i18next: 17.0.7(i18next@26.0.10(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)
-      tailwind-merge: 3.5.0
+      tailwind-merge: 3.6.0
       zustand: 5.0.13(@types/react@19.2.14)(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
@@ -3926,22 +3919,6 @@ snapshots:
       - use-sync-external-store
 
   ejsc-ma-router@1.0.3(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
-    dependencies:
-      classnames: 2.5.1
-      framer-motion: 12.38.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      lodash: 4.18.1
-      nanoid: 5.1.11
-      react: 19.2.6
-      react-dom: 19.2.6(react@19.2.6)
-      react-freeze: 1.0.4(react@19.2.6)
-      zustand: 5.0.13(@types/react@19.2.14)(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
-    transitivePeerDependencies:
-      - '@emotion/is-prop-valid'
-      - '@types/react'
-      - immer
-      - use-sync-external-store
-
-  ejsc-ma-router@1.0.4(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
     dependencies:
       classnames: 2.5.1
       framer-motion: 12.38.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -4824,7 +4801,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  tailwind-merge@3.5.0: {}
+  tailwind-merge@3.6.0: {}
 
   tailwindcss@4.2.4: {}
 

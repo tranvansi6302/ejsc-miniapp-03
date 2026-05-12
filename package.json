@@ -19,7 +19,7 @@
     "@protobuf-ts/runtime-rpc": "^2.11.1",
     "@tanstack/react-query": "^5.100.9",
     "ejsc-ma-api": "latest",
-    "ejsc-ma-component": "1.0.40",
+    "ejsc-ma-component": "1.0.42",
     "ejsc-ma-router": "latest",
     "framer-motion": "^12.38.0",
     "i18next": "^26.0.10",
