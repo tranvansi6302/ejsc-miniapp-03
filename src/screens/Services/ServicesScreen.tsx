@@ -157,7 +157,7 @@ const ServicesScreen: React.FC = () => {
                           {[1, 2, 3, 4, 5].map((s) => (
                             <Star key={s} size={12} className="text-amber-400 fill-amber-400" />
                           ))}
-                          <Text variant="sub" className="text-slate-500 text-[9px] ml-1.5">{item.rating}</Text>
+                          <Text variant="sub" className="text-slate-500 text-[9px] ml-1Ti.5">{item.rating}</Text>
                         </div>
                         <div className="w-0.5 h-0.5 bg-slate-300 rounded-full" />
                         <Text variant="sub" className="text-slate-400 text-[9px]">{item.bookings} lượt đặt</Text>
