@@ -9,6 +9,7 @@ import { HomeQuickStats } from '~/features/home/components/HomeQuickStats';
 import { HomeServiceGrid } from '~/features/home/components/HomeServiceGrid';
 import { HomeWelcome } from '~/features/home/components/HomeWelcome';
 import { useHome } from '~/features/home/hooks/useHome';
+import bannerHeader from '~/assets/images/bannerheader.jpg';
 
 const HomeScreen: React.FC = () => {
   const { user, navigate, handleRefresh } = useHome();
@@ -48,7 +49,7 @@ const HomeScreen: React.FC = () => {
         {/* Landscape Banner Background (Immersive Style) - Mini App 03 */}
         <div className="absolute top-0 left-0 right-0 h-[260px] z-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1068&auto=format&fit=crop"
+            src={bannerHeader}
             className="w-full h-full object-cover"
             alt="Booking Background"
           />
