@@ -40,8 +40,14 @@ const MemoizedBottomBar = React.memo(({ show, items, currentPath }: IBottomBarPr
   if (!show) return null;
 
   return createPortal(
-    <div className="fixed bottom-0 left-0 w-full z-[1000] h-[98px] flex flex-col justify-end pointer-events-none">
-      <div className="absolute inset-x-0 bottom-0 h-[84px] pointer-events-auto overflow-hidden">
+    <div 
+      className="fixed bottom-0 left-0 w-full z-[1000] flex flex-col justify-end pointer-events-none transition-all duration-300"
+      style={{ 
+        paddingBottom: 'var(--ejsc-safe-bottom)',
+        height: 'calc(98px + var(--ejsc-safe-bottom))'
+      }}
+    >
+      <div className="absolute inset-x-0 bottom-0 pointer-events-auto overflow-hidden" style={{ height: 'calc(84px + var(--ejsc-safe-bottom))' }}>
         <svg
           viewBox="0 0 400 84"
           className="w-full h-full fill-white drop-shadow-[0_-5px_14px_rgba(0,0,0,0.06)]"
