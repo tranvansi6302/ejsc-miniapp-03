@@ -57,25 +57,25 @@ const MemoizedBottomBar = React.memo(({ show, items, currentPath }: IBottomBarPr
         </svg>
       </div>
 
-      <div className="relative flex items-center justify-between px-1 pointer-events-auto w-full" style={{ height: '84px' }}>
+      <div className="relative flex items-end justify-between px-1 pb-1 pointer-events-auto w-full h-full pt-6">
         {items.map((tab) => {
           const isActive = currentPath === tab.path;
           const isFAB = tab.path === '/booking';
 
           if (isFAB) {
             return (
-              <div key={tab.path} className="flex-1 flex flex-col items-center justify-center h-full relative">
+              <div key={tab.path} className="flex-1 flex flex-col items-center justify-end pb-3 h-full">
                 <div
                   onClick={() => navigate(tab.path)}
-                  className="z-50 -mt-[38px] active:scale-95 transition-all flex flex-col items-center justify-center"
+                  className="z-50 -mb-[6px] active:scale-95 transition-all flex items-center justify-center h-[60px] w-[60px]"
                 >
-                  <div className="h-[46px] w-[46px] rounded-[14px] bg-ejsc-brand-sub overflow-hidden flex items-center justify-center shadow-[0_6px_16px_rgba(52,92,90,0.25)] mb-1">
-                    <Calendar size={24} className="text-white" />
+                  <div className="h-[35px] w-[35px] rounded-[11px] bg-ejsc-brand-sub overflow-hidden flex items-center justify-center shadow-[0_4px_12px_rgba(52,92,90,0.2)]">
+                    <Calendar size={25} className="text-white" />
                   </div>
-                  <span className={`text-[10px] leading-none font-bold ${isActive ? 'text-ejsc-brand-sub' : 'text-slate-600'}`}>
-                    {tab.name}
-                  </span>
                 </div>
+                <span className={`text-[10px] leading-none font-normal ${isActive ? 'text-ejsc-brand-sub' : 'text-slate-900'}`}>
+                  {tab.name}
+                </span>
               </div>
             );
           }
@@ -84,12 +84,12 @@ const MemoizedBottomBar = React.memo(({ show, items, currentPath }: IBottomBarPr
             <div
               key={tab.path}
               onClick={() => navigate(tab.path)}
-              className={`flex-1 flex flex-col items-center justify-center h-full transition-all cursor-pointer active:opacity-60 ${isActive ? 'text-ejsc-brand-sub' : 'text-slate-400'}`}
+              className={`flex-1 flex flex-col items-center justify-end pb-3 h-full transition-all cursor-pointer active:opacity-60 ${isActive ? 'text-ejsc-brand-sub' : 'text-slate-400'}`}
             >
-              <div className={`${isActive ? 'scale-110 text-ejsc-brand-sub' : 'text-slate-400'} transition-all mb-1`}>
+              <div className={`${isActive ? 'scale-105 text-ejsc-brand-sub' : 'text-slate-400'} transition-all mb-1`}>
                 {getIcon(tab.icon)}
               </div>
-              <span className={`text-[10px] leading-none font-semibold ${isActive ? 'text-ejsc-brand-sub' : 'text-slate-400'}`}>
+              <span className={`text-[10px] leading-none font-normal ${isActive ? 'text-ejsc-brand-sub' : 'text-slate-400'}`}>
                 {tab.name}
               </span>
             </div>
