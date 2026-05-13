@@ -48,9 +48,9 @@ const HomeScreen: React.FC = () => {
         {/* Landscape Banner Background (Immersive Style) - Mini App 03 */}
         <div className="absolute top-0 left-0 right-0 h-[260px] z-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1064&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1068&auto=format&fit=crop"
             className="w-full h-full object-cover"
-            alt="Header Background"
+            alt="Booking Background"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-white" />
         </div>
