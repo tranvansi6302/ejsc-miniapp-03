@@ -79,7 +79,7 @@ const ServicesScreen: React.FC = () => {
               </div>
             </div>
           </div>
- 
+
           {/* Search Bar & Filter Row */}
           <div className="flex items-center gap-3">
             <div className="flex-1 bg-slate-50 border border-slate-100 rounded-ejsc px-4 h-14 flex items-center gap-3">
@@ -100,7 +100,7 @@ const ServicesScreen: React.FC = () => {
             </button>
           </div>
         </div>
- 
+
         <div className="pb-24 flex flex-col bg-[#F5F5F5]">
           {/* Featured Services - New Banner Carousel Style */}
           <div className="flex flex-col gap-4 mt-6">
@@ -112,7 +112,7 @@ const ServicesScreen: React.FC = () => {
                 ))}
               </div>
             </div>
- 
+
             <div className="flex gap-4 overflow-x-auto no-scrollbar px-5 snap-x snap-mandatory [-webkit-overflow-scrolling:touch]">
               {FEATURED_SERVICES.map((item) => (
                 <div

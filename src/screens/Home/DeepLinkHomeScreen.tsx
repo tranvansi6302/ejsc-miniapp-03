@@ -4,7 +4,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import { StandardPage, Text, Card, toast } from 'ejsc-ma-component';
-import { ExternalLink, CheckCircle2, XCircle, User } from 'lucide-react';
+import { ExternalLink, CheckCircle2, XCircle, User, ChevronsRight } from 'lucide-react';
 import { apisAsync } from 'ejsc-ma-api';
 
 const DeepLinkHomeScreen: React.FC = () => {
@@ -73,8 +73,9 @@ const DeepLinkHomeScreen: React.FC = () => {
   return (
     <StandardPage title="Mini App 03">
       {/* Header Banner Area - Flat Look */}
-      <div className="bg-gradient-to-br from-orange-600 to-amber-700 px-6 py-4 text-white">
-        <Text variant="sub" color="white" className="opacity-90">Điều hướng deeplink qua các mini app khác</Text>
+      <div className="bg-gradient-to-br flex items-center gap-2 from-orange-600 to-amber-700 px-6 py-4 text-white">
+        <ChevronsRight size={18} className="text-white" />
+        <Text variant="sub" color="white" className="opacity-90">Mini app nội bộ cho development/testing</Text>
       </div>
 
       {/* Content Area - Increased Spacing from Header */}
@@ -92,25 +93,24 @@ const DeepLinkHomeScreen: React.FC = () => {
           </div>
         </Card>
 
-        <div className="rounded-3xl border-none shadow-none bg-white flex flex-col gap-5">
-          <Text variant="base" weight="bold" className="text-slate-700">Chuyển đến Mini App khác</Text>
-          <div className="flex flex-col gap-4">
-            {apps.map(app => (
+        {/* Mini App Section */}
+        <div className="flex flex-col gap-4">
+          <Text variant="base" weight="bold" className="text-slate-700">Mini App nổi bật</Text>
+          <div className="grid grid-cols-2 gap-3">
+            {apps.filter(app => !app.isSelf).map(app => (
               <button
                 key={app.id}
-                onClick={() => !app.isSelf && openApp(app.id, app.name)}
-                disabled={app.isSelf}
-                className={`w-full flex items-center gap-4 p-4 rounded-2xl border transition-all ${app.isSelf ? 'opacity-50 bg-slate-50 border-slate-100' : 'hover:bg-slate-50 border-slate-100 shadow-none'
-                  }`}
+                onClick={() => openApp(app.id, app.name)}
+                className="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-all active:scale-95 bg-white"
               >
-                <div className={`w-12 h-12 rounded-2xl ${app.color} flex items-center justify-center text-white font-black text-lg shadow-none`}>
+                <div className={`w-12 h-12 shrink-0 rounded-2xl ${app.color} flex items-center justify-center text-white font-black text-xl shadow-sm`}>
                   {app.num || '3'}
                 </div>
                 <div className="flex-1 text-left">
-                  <Text variant="base" weight="bold">{app.name}</Text>
-                  <Text variant="sub" className="text-slate-500 line-clamp-1 text-[11px]">{app.desc}</Text>
+                  <Text variant="base" weight="bold" className="text-slate-800">{app.name}</Text>
+                  <Text variant="sub" className="text-slate-500 text-[11px]">Nhấn để mở</Text>
                 </div>
-                {!app.isSelf && <ExternalLink size={16} className="text-slate-400" />}
+                <ExternalLink size={16} className="text-slate-400 shrink-0" />
               </button>
             ))}
           </div>
